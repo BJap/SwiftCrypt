@@ -6,8 +6,14 @@
 //  Copyright © 2016 Bobby Jap. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface SwiftCrypt : NSObject
+//! Project version number for SwiftCrypt.
+FOUNDATION_EXPORT double SwiftCryptVersionNumber;
 
-@end
+//! Project version string for SwiftCrypt.
+FOUNDATION_EXPORT const unsigned char SwiftCryptVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <SwiftCrypt/PublicHeader.h>
+
+
