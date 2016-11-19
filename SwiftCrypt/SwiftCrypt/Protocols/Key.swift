@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol Key {
-    
+protocol Key
+{    
     /// Generates a random key.
     ///
     /// - Parameter clearText: The text to be prepared.

@@ -8,8 +8,8 @@
 
 import Foundation
 
-@objc protocol Cipher {
-    
+@objc protocol Cipher
+{    
     /// Encrypts the text.
     ///
     /// - Parameter clearText: The text to be encrypted.
