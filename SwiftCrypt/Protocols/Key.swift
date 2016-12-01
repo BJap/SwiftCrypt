@@ -12,8 +12,6 @@ protocol Key
 {    
     /// Generates a random key.
     ///
-    /// - Parameter clearText: The text to be prepared.
-    ///
     /// - Returns: A random key.
     static func randomKey() -> String
     
@@ -22,7 +20,7 @@ protocol Key
     /// - Parameter seed: The seed with which to generate random values.
     ///
     /// - Returns: A random key.
-    static func randomKey(seed: UInt32) -> String
+    static func randomKey(withSeed seed: UInt32) -> String
     
     /// Validates a key.
     ///
