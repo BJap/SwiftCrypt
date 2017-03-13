@@ -16,11 +16,11 @@ class CaesarTest: XCTestCase
     /// Tests successful encryption.
     func testEncrypt()
     {
-        let text = "TEST TEXT!"
+        let text = "TEST textz!"
         let key = "5"
         let cipher = Caesar.encrypt(text: text, withKey: key)
         
-        XCTAssertEqual("YJXY YJCY!", cipher)
+        XCTAssertEqual("YJXY yjcye!", cipher)
     }
     
     // MARK: DECRYPTION TESTS
@@ -28,11 +28,11 @@ class CaesarTest: XCTestCase
     /// Tests successful decryption.
     func testDecrypt()
     {
-        let cipher = "YJXY YJCY!"
+        let cipher = "YJXY yjcye!"
         let key = "5"
         let text = Caesar.decrypt(cipher: cipher, withKey: key)
         
-        XCTAssertEqual("TEST TEXT!", text)
+        XCTAssertEqual("TEST textz!", text)
     }
     
     // MARK: RANDOM KEY TESTS
@@ -40,18 +40,7 @@ class CaesarTest: XCTestCase
     /// Test successful key generation.
     func testRandomKey()
     {
-        let key = Caesar.randomKey()
-        
-        XCTAssertTrue(Int(key)! > 0)
-        XCTAssertTrue(Int(key)! < 26)
-    }
-    
-    // MARK: RANDOM KEY FROM SEED TESTS
-    
-    /// Test successful key generation with a seed.
-    func testRandomKeyWithSeed()
-    {
-        let key = Caesar.randomKey(withSeed: 42)
+        let key = Caesar.generateKey()
         
         XCTAssertTrue(Int(key)! > 0)
         XCTAssertTrue(Int(key)! < 26)
@@ -67,5 +56,6 @@ class CaesarTest: XCTestCase
         XCTAssertFalse(Caesar.validate(key: "0"))
         XCTAssertFalse(Caesar.validate(key: "26"))
         XCTAssertFalse(Caesar.validate(key: "40"))
+        XCTAssertFalse(Caesar.validate(key: ""))
     }
 }
