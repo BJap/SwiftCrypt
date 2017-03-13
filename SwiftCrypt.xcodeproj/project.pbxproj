@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AFB1EBEE1E76314200D6E5AA /* Caesar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB1EBED1E76314200D6E5AA /* Caesar.swift */; };
+		AFB1EBF01E7634F300D6E5AA /* CaesarTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB1EBEF1E7634F300D6E5AA /* CaesarTest.swift */; };
 		AFF5E6D01DDAEEF9001EA42E /* SwiftCrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF5E6C61DDAEEF9001EA42E /* SwiftCrypt.framework */; };
-		AFF5E6D51DDAEEF9001EA42E /* SwiftCryptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5E6D41DDAEEF9001EA42E /* SwiftCryptTests.swift */; };
 		AFF5E6D71DDAEEF9001EA42E /* SwiftCrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFF5E6E51DDAEF83001EA42E /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5E6E41DDAEF83001EA42E /* Key.swift */; };
 		AFF5E6E71DDAEF95001EA42E /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5E6E61DDAEF95001EA42E /* Cipher.swift */; };
@@ -25,11 +26,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AFB1EBED1E76314200D6E5AA /* Caesar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Caesar.swift; path = Ciphers/Caesar.swift; sourceTree = "<group>"; };
+		AFB1EBEF1E7634F300D6E5AA /* CaesarTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaesarTest.swift; sourceTree = "<group>"; };
 		AFF5E6C61DDAEEF9001EA42E /* SwiftCrypt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCrypt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCrypt.h; sourceTree = "<group>"; };
 		AFF5E6CA1DDAEEF9001EA42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFF5E6CF1DDAEEF9001EA42E /* SwiftCryptTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCryptTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFF5E6D41DDAEEF9001EA42E /* SwiftCryptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCryptTests.swift; sourceTree = "<group>"; };
 		AFF5E6D61DDAEEF9001EA42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFF5E6E41DDAEF83001EA42E /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Key.swift; path = Protocols/Key.swift; sourceTree = "<group>"; };
 		AFF5E6E61DDAEF95001EA42E /* Cipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cipher.swift; path = Protocols/Cipher.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AFB1EBEC1E7630D900D6E5AA /* Ciphers */ = {
+			isa = PBXGroup;
+			children = (
+				AFB1EBED1E76314200D6E5AA /* Caesar.swift */,
+			);
+			name = Ciphers;
+			sourceTree = "<group>";
+		};
 		AFF5E6BC1DDAEEF9001EA42E = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 		AFF5E6C81DDAEEF9001EA42E /* SwiftCrypt */ = {
 			isa = PBXGroup;
 			children = (
+				AFB1EBEC1E7630D900D6E5AA /* Ciphers */,
 				AFF5E6E01DDAEF06001EA42E /* Protocols */,
 				AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */,
 				AFF5E6CA1DDAEEF9001EA42E /* Info.plist */,
@@ -85,7 +96,7 @@
 		AFF5E6D31DDAEEF9001EA42E /* SwiftCryptTests */ = {
 			isa = PBXGroup;
 			children = (
-				AFF5E6D41DDAEEF9001EA42E /* SwiftCryptTests.swift */,
+				AFB1EBEF1E7634F300D6E5AA /* CaesarTest.swift */,
 				AFF5E6D61DDAEEF9001EA42E /* Info.plist */,
 			);
 			path = SwiftCryptTests;
@@ -157,7 +168,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Bobby Jap";
 				TargetAttributes = {
 					AFF5E6C51DDAEEF9001EA42E = {
@@ -213,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB1EBEE1E76314200D6E5AA /* Caesar.swift in Sources */,
 				AFF5E6E71DDAEF95001EA42E /* Cipher.swift in Sources */,
 				AFF5E6E51DDAEF83001EA42E /* Key.swift in Sources */,
 			);
@@ -222,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFF5E6D51DDAEEF9001EA42E /* SwiftCryptTests.swift in Sources */,
+				AFB1EBF01E7634F300D6E5AA /* CaesarTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +267,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -308,6 +321,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -422,6 +436,7 @@
 				AFF5E6DC1DDAEEF9001EA42E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AFF5E6DD1DDAEEF9001EA42E /* Build configuration list for PBXNativeTarget "SwiftCryptTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +445,7 @@
 				AFF5E6DF1DDAEEF9001EA42E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
