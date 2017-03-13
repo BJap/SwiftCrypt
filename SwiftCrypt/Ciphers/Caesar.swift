@@ -10,6 +10,14 @@ import Foundation
 
 class Caesar
 {
+    struct Shifter
+    {
+        let shift: (Int, Int) -> Int
+        let wrap: (Int) -> Int
+        let bigBoundExceeded: (Int) -> Bool
+        let smallBoundExceeded: (Int) -> Bool
+    }
+    
     /// Shifts all the characters in the input the appropriate direction and count.
     ///
     /// - Parameter input: The text to be shifted.
@@ -19,7 +27,7 @@ class Caesar
     /// - Parameter shift: The function that specifies how to shift each character.
     ///
     /// - Returns: The shift input.
-    static func shift(input: String, withKey key: String, withShifter shift: (Character, Int) -> (Character)) -> String
+    static func shift(input: String, withKey key: String, withShifter shifter: Shifter) -> String
     {
         if !validate(key: key)
         {
@@ -32,7 +40,33 @@ class Caesar
         
         for character in input.characters
         {
-            characters[i] = shift(character, k)
+            var c = character
+            var av = character.asciiValue ?? 0
+            
+            if av >= ("A" as Character).asciiValue! && av <= ("Z" as Character).asciiValue!
+            {
+                av = shifter.shift(av, k)
+                
+                if shifter.bigBoundExceeded(av)
+                {
+                    av = shifter.wrap(av)
+                }
+                
+                c = av.charValue!
+            }
+            else if av >= ("a" as Character).asciiValue! && av <= ("z" as Character).asciiValue!
+            {
+                av = shifter.shift(av, k)
+                
+                if shifter.smallBoundExceeded(av)
+                {
+                    av = shifter.wrap(av)
+                }
+                
+                c = av.charValue!
+            }
+            
+            characters[i] = c
             
             i += 1
         }
@@ -45,78 +79,22 @@ extension Caesar: Cipher
 {
     public static func encrypt(text: String, withKey key: String) -> String
     {
-        func encryptCharacter(character: Character, withKey key: Int) -> Character
-        {
-            var c = character
-            var av = character.asciiValue ?? 0
-            
-            if av >= ("A" as Character).asciiValue! && av <= ("Z" as Character).asciiValue!
-            {
-                av += key
-                
-                if av > ("Z" as Character).asciiValue!
-                {
-                    av -= 26
-                }
-                
-                c = av.charValue!
-            }
-            else if av >= ("a" as Character).asciiValue! && av <= ("z" as Character).asciiValue!
-            {
-                av += key
-                
-                if av > ("z" as Character).asciiValue!
-                {
-                    av -= 26
-                }
-                
-                c = av.charValue!
-            }
-            
-            return c
-        }
+        let shifter = Shifter(shift: { $0 + $1 },
+                              wrap: { $0 - 26 },
+                              bigBoundExceeded: { $0 > ("Z" as Character).asciiValue! },
+                              smallBoundExceeded: { $0 > ("z" as Character).asciiValue! })
         
-        let e = encryptCharacter
-        
-        return shift(input: text, withKey: key, withShifter: e)
+        return shift(input: text, withKey: key, withShifter: shifter)
     }
     
     public static func decrypt(cipher: String, withKey key: String) -> String
     {
-        func decryptCharacter(character: Character, withKey key: Int) -> Character
-        {
-            var c = character
-            var av = character.asciiValue ?? 0
-            
-            if av >= ("A" as Character).asciiValue! && av <= ("Z" as Character).asciiValue!
-            {
-                av -= key
-                
-                if av < ("A" as Character).asciiValue!
-                {
-                    av += 26
-                }
-                
-                c = av.charValue!
-            }
-            else if av >= ("a" as Character).asciiValue! && av <= ("z" as Character).asciiValue!
-            {
-                av -= key
-                
-                if av < ("a" as Character).asciiValue!
-                {
-                    av += 26
-                }
-                
-                c = av.charValue!
-            }
-            
-            return c
-        }
+        let shifter = Shifter(shift: { $0 - $1 },
+                              wrap: { $0 + 26 },
+                              bigBoundExceeded: { $0 < ("A" as Character).asciiValue! },
+                              smallBoundExceeded: { $0 < ("a" as Character).asciiValue! })
         
-        let d = decryptCharacter
-        
-        return shift(input: cipher, withKey: key, withShifter: d)
+        return shift(input: cipher, withKey: key, withShifter: shifter)
     }
 }
 
