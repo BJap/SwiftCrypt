@@ -26,8 +26,8 @@ class Caesar
     ///
     /// - Parameter shift: The function that specifies how to shift each character.
     ///
-    /// - Returns: The shift input.
-    static func shift(input: String, withKey key: String, withShifter shifter: Shifter) -> String
+    /// - Returns: The shifted input.
+    static func shift(input: String, withKey key: String, usingShifter shifter: Shifter) -> String
     {
         if !validate(key: key)
         {
@@ -84,7 +84,7 @@ extension Caesar: Cipher
                               bigBoundExceeded: { $0 > ("Z" as Character).asciiValue! },
                               smallBoundExceeded: { $0 > ("z" as Character).asciiValue! })
         
-        return shift(input: text, withKey: key, withShifter: shifter)
+        return shift(input: text, withKey: key, usingShifter: shifter)
     }
     
     public static func decrypt(cipher: String, withKey key: String) -> String
@@ -94,7 +94,7 @@ extension Caesar: Cipher
                               bigBoundExceeded: { $0 < ("A" as Character).asciiValue! },
                               smallBoundExceeded: { $0 < ("a" as Character).asciiValue! })
         
-        return shift(input: cipher, withKey: key, withShifter: shifter)
+        return shift(input: cipher, withKey: key, usingShifter: shifter)
     }
 }
 
