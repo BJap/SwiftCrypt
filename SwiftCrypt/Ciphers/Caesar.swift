@@ -10,6 +10,15 @@ import Foundation
 
 class Caesar
 {
+    /// Shifts all the characters in the input the appropriate direction and count.
+    ///
+    /// - Parameter input: The text to be shifted.
+    ///
+    /// - Parameter key: The key with which to shift the input.
+    ///
+    /// - Parameter shift: The function that specifies how to shift each character.
+    ///
+    /// - Returns: The shift input.
     static func shift(input: String, withKey key: String, withShifter shift: (Character, Int) -> (Character)) -> String
     {
         if !validate(key: key)
