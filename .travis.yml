@@ -1,0 +1,4 @@
+language: objective-c
+xcodeproject: SwiftCrypt.xcodeproj
+xcode_scheme: SwiftCryptTests
+osx_image: xcode8.2
