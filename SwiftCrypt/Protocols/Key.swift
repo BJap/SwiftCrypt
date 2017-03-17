@@ -9,19 +9,19 @@
 import Foundation
 
 protocol Key
-{    
+{
     /// Generates a random key.
     ///
     /// - Returns: A random key.
     static func randomKey() -> String
-    
+
     /// Generates a random key.
     ///
     /// - Parameter seed: The seed with which to generate random values.
     ///
     /// - Returns: A random key.
     static func randomKey(withSeed seed: UInt32) -> String
-    
+
     /// Validates a key.
     ///
     /// - Parameter key: The key to validate.
