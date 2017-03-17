@@ -1,0 +1,6 @@
+engines:
+  taylor:
+    enabled: true
+ratings:
+  paths:
+  - "**.swift"
