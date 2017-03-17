@@ -13,8 +13,9 @@ protocol Key
     /// Generates a random key.
     ///
     /// - Returns: A random key.
+
     static func generateKey() -> String
-    
+
     /// Validates a key.
     ///
     /// - Parameter key: The key to validate.

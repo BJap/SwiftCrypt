@@ -1,0 +1,9 @@
+engines:
+  tailor:
+    enabled: true
+    checks:
+      brace-style:
+        enabled: false
+ratings:
+  paths:
+  - "**.swift"
