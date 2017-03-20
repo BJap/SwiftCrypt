@@ -10,67 +10,67 @@ import Foundation
 
 class Caesar
 {
-    struct Shifter
+    struct Rotator
     {
-        let shift: (Int, Int) -> Int
+        let rotate: (Int, Int) -> Int
         let wrap: (Int) -> Int
         let bigBoundExceeded: (Int) -> Bool
         let smallBoundExceeded: (Int) -> Bool
     }
-    
-    /// Shifts all the characters in the input the appropriate direction and count.
+
+    /// Rotates all the ASCII characters in the input the appropriate direction and count.
     ///
-    /// - Parameter input: The text to be shifted.
+    /// - Parameter input: The text to be rotated.
     ///
-    /// - Parameter key: The key with which to shift the input.
+    /// - Parameter key: The key with which to rotate the input.
     ///
-    /// - Parameter shift: The function that specifies how to shift each character.
+    /// - Parameter rotator: The rotator rules that specify how to rotate each character.
     ///
-    /// - Returns: The shifted input.
-    static func shift(input: String, withKey key: String, usingShifter shifter: Shifter) -> String
+    /// - Returns: The rotated input.
+    static func rotate(input: String, withKey key: String, usingRotator rotator: Rotator) -> String
     {
         if !validate(key: key)
         {
             fatalError("The given key is invalid and must be a number from 1 to 25")
         }
-        
+
         var characters:[Character] = Array(input.characters)
         var i = 0;
         let k = Int(key)!
-        
+
         for character in input.characters
         {
             var c = character
             var av = character.asciiValue ?? 0
-            
-            if av >= ("A" as Character).asciiValue! && av <= ("Z" as Character).asciiValue!
+
+            if ("A" as Character) <= c && c <= ("Z" as Character)
             {
-                av = shifter.shift(av, k)
+                av = rotator.rotate(av, k)
                 
-                if shifter.bigBoundExceeded(av)
+                if rotator.bigBoundExceeded(av)
                 {
-                    av = shifter.wrap(av)
+                    av = rotator.wrap(av)
                 }
                 
                 c = av.charValue!
             }
-            else if av >= ("a" as Character).asciiValue! && av <= ("z" as Character).asciiValue!
+            else if ("a" as Character) <= c && c <= ("z" as Character)
             {
-                av = shifter.shift(av, k)
+                av = rotator.rotate(av, k)
                 
-                if shifter.smallBoundExceeded(av)
+                if rotator.smallBoundExceeded(av)
                 {
-                    av = shifter.wrap(av)
+                    av = rotator.wrap(av)
                 }
                 
                 c = av.charValue!
             }
-            
+
             characters[i] = c
             
             i += 1
         }
-        
+
         return String(characters)
     }
 }
@@ -79,22 +79,22 @@ extension Caesar: Cipher
 {
     public static func encrypt(text: String, withKey key: String) -> String
     {
-        let shifter = Shifter(shift: { $0 + $1 },
+        let rotator = Rotator(rotate: { $0 + $1 },
                               wrap: { $0 - 26 },
                               bigBoundExceeded: { $0 > ("Z" as Character).asciiValue! },
                               smallBoundExceeded: { $0 > ("z" as Character).asciiValue! })
-        
-        return shift(input: text, withKey: key, usingShifter: shifter)
+
+        return rotate(input: text, withKey: key, usingRotator: rotator)
     }
-    
+
     public static func decrypt(cipher: String, withKey key: String) -> String
     {
-        let shifter = Shifter(shift: { $0 - $1 },
+        let rotator = Rotator(rotate: { $0 - $1 },
                               wrap: { $0 + 26 },
                               bigBoundExceeded: { $0 < ("A" as Character).asciiValue! },
                               smallBoundExceeded: { $0 < ("a" as Character).asciiValue! })
-        
-        return shift(input: cipher, withKey: key, usingShifter: shifter)
+
+        return rotate(input: cipher, withKey: key, usingRotator: rotator)
     }
 }
 
@@ -104,12 +104,12 @@ extension Caesar: Key
     {
         return String(arc4random_uniform(24) + 1)
     }
-    
+
     public static func validate(key: String) -> Bool
     {
         let k = Int(key) ?? -1
         
-        return k > 0 && k < 26
+        return 0 < k && k < 26
     }
 }
 
