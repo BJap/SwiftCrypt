@@ -35,38 +35,29 @@ class Caesar
         }
 
         var characters:[Character] = Array(input.characters)
-        var i = 0;
         let k = Int(key)!
+        var i = 0;
 
-        for character in input.characters
+        for c in input.characters
         {
-            var c = character
-            var av = character.asciiValue ?? 0
-
-            if ("A" as Character) <= c && c <= ("Z" as Character)
+            if var av = c.asciiValue
             {
                 av = rotator.rotate(av, k)
-                
-                if rotator.bigBoundExceeded(av)
-                {
-                    av = rotator.wrap(av)
-                }
-                
-                c = av.charValue!
-            }
-            else if ("a" as Character) <= c && c <= ("z" as Character)
-            {
-                av = rotator.rotate(av, k)
-                
-                if rotator.smallBoundExceeded(av)
-                {
-                    av = rotator.wrap(av)
-                }
-                
-                c = av.charValue!
-            }
 
-            characters[i] = c
+                if ("A" as Character) <= c && c <= ("Z" as Character)
+                {
+                    if rotator.bigBoundExceeded(av) { av = rotator.wrap(av) }
+
+                    characters[i] = av.charValue!
+                }
+                else if ("a" as Character) <= c && c <= ("z" as Character)
+                {
+                    if rotator.smallBoundExceeded(av) { av = rotator.wrap(av) }
+
+                    characters[i] = av.charValue!
+                }
+            }
+            else { characters[i] = c }
             
             i += 1
         }
