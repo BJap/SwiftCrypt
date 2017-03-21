@@ -3,6 +3,6 @@ xcode_project: SwiftCrypt.xcodeproj
 xcode_scheme: SwiftCrypt
 osx_image: xcode8.2
 script:
-    - xcodebuild clean build -sdk iphonesimulator -project SwiftCrypt.xcodeproj -scheme SwiftCrypt
+    - xcodebuild clean build -sdk iphonesimulator -project SwiftCrypt.xcodeproj -scheme SwiftCrypt -enableCodeCoverage
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'SwiftCrypt'
