@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF659BCD1E80FBD30088CA95 /* GeneralErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BCC1E80FBD30088CA95 /* GeneralErrors.swift */; };
+		AF659BD71E8108DE0088CA95 /* CaesarTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BD61E8108DE0088CA95 /* CaesarTest.swift */; };
 		AFB1EBEE1E76314200D6E5AA /* Caesar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB1EBED1E76314200D6E5AA /* Caesar.swift */; };
-		AFB1EBF01E7634F300D6E5AA /* CaesarTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB1EBEF1E7634F300D6E5AA /* CaesarTest.swift */; };
 		AFF5E6D01DDAEEF9001EA42E /* SwiftCrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF5E6C61DDAEEF9001EA42E /* SwiftCrypt.framework */; };
 		AFF5E6D71DDAEEF9001EA42E /* SwiftCrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFF5E6E51DDAEF83001EA42E /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5E6E41DDAEF83001EA42E /* Key.swift */; };
@@ -26,8 +27,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF659BCC1E80FBD30088CA95 /* GeneralErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralErrors.swift; path = Errors/GeneralErrors.swift; sourceTree = "<group>"; };
+		AF659BD61E8108DE0088CA95 /* CaesarTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaesarTest.swift; path = Ciphers/CaesarTest.swift; sourceTree = "<group>"; };
 		AFB1EBED1E76314200D6E5AA /* Caesar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Caesar.swift; path = Ciphers/Caesar.swift; sourceTree = "<group>"; };
-		AFB1EBEF1E7634F300D6E5AA /* CaesarTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaesarTest.swift; sourceTree = "<group>"; };
 		AFF5E6C61DDAEEF9001EA42E /* SwiftCrypt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCrypt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCrypt.h; sourceTree = "<group>"; };
 		AFF5E6CA1DDAEEF9001EA42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +58,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF659BCB1E80FB910088CA95 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				AF659BCC1E80FBD30088CA95 /* GeneralErrors.swift */,
+			);
+			name = Errors;
+			sourceTree = "<group>";
+		};
+		AF659BCE1E8107B00088CA95 /* Ciphers */ = {
+			isa = PBXGroup;
+			children = (
+				AF659BD61E8108DE0088CA95 /* CaesarTest.swift */,
+			);
+			name = Ciphers;
+			sourceTree = "<group>";
+		};
 		AFB1EBEC1E7630D900D6E5AA /* Ciphers */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				AFB1EBEC1E7630D900D6E5AA /* Ciphers */,
+				AF659BCB1E80FB910088CA95 /* Errors */,
 				AFF5E6E01DDAEF06001EA42E /* Protocols */,
 				AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */,
 				AFF5E6CA1DDAEEF9001EA42E /* Info.plist */,
@@ -96,7 +115,7 @@
 		AFF5E6D31DDAEEF9001EA42E /* SwiftCryptTests */ = {
 			isa = PBXGroup;
 			children = (
-				AFB1EBEF1E7634F300D6E5AA /* CaesarTest.swift */,
+				AF659BCE1E8107B00088CA95 /* Ciphers */,
 				AFF5E6D61DDAEEF9001EA42E /* Info.plist */,
 			);
 			path = SwiftCryptTests;
@@ -180,6 +199,7 @@
 					AFF5E6CE1DDAEEF9001EA42E = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = NQ5KHF29CX;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -225,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFB1EBEE1E76314200D6E5AA /* Caesar.swift in Sources */,
+				AF659BCD1E80FBD30088CA95 /* GeneralErrors.swift in Sources */,
 				AFF5E6E71DDAEF95001EA42E /* Cipher.swift in Sources */,
 				AFF5E6E51DDAEF83001EA42E /* Key.swift in Sources */,
 			);
@@ -234,7 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFB1EBF01E7634F300D6E5AA /* CaesarTest.swift in Sources */,
+				AF659BD71E8108DE0088CA95 /* CaesarTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,11 +416,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = NQ5KHF29CX;
 				INFOPLIST_FILE = SwiftCryptTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bobbyjap.SwiftCryptTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -408,11 +432,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = NQ5KHF29CX;
 				INFOPLIST_FILE = SwiftCryptTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bobbyjap.SwiftCryptTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

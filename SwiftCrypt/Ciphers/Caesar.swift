@@ -18,6 +18,8 @@ class Caesar
         let smallBoundExceeded: (Int) -> Bool
     }
 
+    static let invalidCaesarKey = "The given key is invalid and must be a number from 1 to 25"
+
     /// Rotates all the ASCII characters in the input the appropriate direction and count.
     ///
     /// - Parameter input: The text to be rotated.
@@ -27,11 +29,11 @@ class Caesar
     /// - Parameter rotator: The rotator rules that specify how to rotate each character.
     ///
     /// - Returns: The rotated input.
-    static func rotate(input: String, withKey key: String, usingRotator rotator: Rotator) -> String
+    static func rotate(input: String, withKey key: String, usingRotator rotator: Rotator) -> String?
     {
         if !validate(key: key)
         {
-            fatalError("The given key is invalid and must be a number from 1 to 25")
+            return nil
         }
 
         var characters:[Character] = Array(input.characters)
@@ -68,24 +70,34 @@ class Caesar
 
 extension Caesar: Cipher
 {
-    public static func encrypt(text: String, withKey key: String) -> String
+    public static func encrypt(text: String, withKey key: String) throws -> String
     {
         let rotator = Rotator(rotate: { $0 + $1 },
                               wrap: { $0 - 26 },
                               bigBoundExceeded: { $0 > ("Z" as Character).asciiValue! },
                               smallBoundExceeded: { $0 > ("z" as Character).asciiValue! })
 
-        return rotate(input: text, withKey: key, usingRotator: rotator)
+        guard let cipher = rotate(input: text, withKey: key, usingRotator: rotator) else
+        {
+            throw InputError.InvalidKey(message: invalidCaesarKey)
+        }
+
+        return cipher
     }
 
-    public static func decrypt(cipher: String, withKey key: String) -> String
+    public static func decrypt(cipher: String, withKey key: String) throws -> String
     {
         let rotator = Rotator(rotate: { $0 - $1 },
                               wrap: { $0 + 26 },
                               bigBoundExceeded: { $0 < ("A" as Character).asciiValue! },
                               smallBoundExceeded: { $0 < ("a" as Character).asciiValue! })
 
-        return rotate(input: cipher, withKey: key, usingRotator: rotator)
+        guard let text = rotate(input: cipher, withKey: key, usingRotator: rotator) else
+        {
+            throw InputError.InvalidKey(message: invalidCaesarKey)
+        }
+
+        return text
     }
 }
 

@@ -9,7 +9,7 @@
 import Foundation
 
 @objc protocol Cipher
-{
+{    
     /// Encrypts the text.
     ///
     /// - Parameter text: The text to be encrypted.
@@ -17,7 +17,7 @@ import Foundation
     /// - Parameter key: The key with which to encrypt the text.
     ///
     /// - Returns: The encrypted ciphertext.
-    static func encrypt(text: String, withKey key: String) -> String
+    static func encrypt(text: String, withKey key: String) throws -> String
 
     /// Decrypts the text.
     ///
@@ -26,7 +26,7 @@ import Foundation
     /// - Parameter key: The key with which to decrypt the text.
     ///
     /// - Returns: The decrypted text.
-    static func decrypt(cipher: String, withKey key: String) -> String
+    static func decrypt(cipher: String, withKey key: String) throws -> String
 
     /// Prepares the text to be encrypted.
     /// For example: Some ciphers do not encrypt specific characters
