@@ -16,6 +16,8 @@ import Foundation
     ///
     /// - Parameter key: The key with which to encrypt the text.
     ///
+    /// - Throws: `InputError.InvalidKey` when an invalid key is used.
+    ///
     /// - Returns: The encrypted ciphertext.
     static func encrypt(text: String, withKey key: String) throws -> String
 
@@ -24,6 +26,8 @@ import Foundation
     /// - Parameter cipher: The text to be decrypted.
     ///
     /// - Parameter key: The key with which to decrypt the text.
+    ///
+    /// - Throws: `InputError.InvalidKey` when an invalid key is used.
     ///
     /// - Returns: The decrypted text.
     static func decrypt(cipher: String, withKey key: String) throws -> String
