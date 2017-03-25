@@ -12,6 +12,8 @@ import Foundation
 {    
     /// Encrypts the text.
     ///
+    /// - Author: Bobby Jap
+    ///
     /// - Parameter text: The text to be encrypted.
     ///
     /// - Parameter key: The key with which to encrypt the text.
@@ -22,6 +24,8 @@ import Foundation
     static func encrypt(text: String, withKey key: String) throws -> String
 
     /// Decrypts the text.
+    ///
+    /// - Author: Bobby Jap
     ///
     /// - Parameter cipher: The text to be decrypted.
     ///
@@ -35,6 +39,8 @@ import Foundation
     /// Prepares the text to be encrypted.
     /// For example: Some ciphers do not encrypt specific characters
     /// or character cases and the text needs pre-treated.
+    ///
+    /// - Author: Bobby Jap
     ///
     /// - Parameter text: The text to be prepared.
     ///

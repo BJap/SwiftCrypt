@@ -14,6 +14,8 @@ class CaesarTest: XCTestCase
     // MARK: ENCRYPTION TESTS
 
     /// Test successful encryption.
+    ///
+    /// - Author: Bobby Jap
     func testEncrypt()
     {
         let text = "TEST textz!"
@@ -30,8 +32,31 @@ class CaesarTest: XCTestCase
             XCTFail("Exception shouldn't have been thrown")
         }
     }
+    
+    /// Test encryption of empty `String`.
+    ///
+    /// - Author: Bobby Jap
+    func testEncryptEmptyString()
+    {
+        let text = ""
+        let key = "5"
+        
+        do
+        {
+            let cipher = try Caesar.encrypt(text: text, withKey: key)
+            
+            XCTAssertEqual(cipher, "")
+        }
+        catch
+        {
+            XCTFail("Exception shouldn't have been thrown")
+        }
+
+    }
 
     /// Test encryption failure with invalid key.
+    ///
+    /// - Author: Bobby Jap
     func testEncryptWithInvalidKey()
     {
         let text = "TEST textz!"
@@ -43,6 +68,8 @@ class CaesarTest: XCTestCase
     // MARK: DECRYPTION TESTS
 
     /// Test successful decryption.
+    ///
+    /// - Author: Bobby Jap
     func testDecrypt()
     {
         let cipher = "YJXY yjcye!"
@@ -59,8 +86,31 @@ class CaesarTest: XCTestCase
             XCTFail("Exception shouldn't have been thrown")
         }
     }
+    
+    /// Test decryption of empty `String`.
+    ///
+    /// - Author: Bobby Jap
+    func testDecryptEmptyString()
+    {
+        let cipher = ""
+        let key = "5"
+        
+        do
+        {
+            let text = try Caesar.decrypt(cipher: cipher, withKey: key)
+            
+            XCTAssertEqual(text, "")
+        }
+        catch
+        {
+            XCTFail("Exception shouldn't have been thrown")
+        }
+        
+    }
 
     /// Test decryption failure with invalid key.
+    ///
+    /// - Author: Bobby Jap
     func testDecryptWithInvalidKey()
     {
         let cipher = "YJXY yjcye!"
@@ -72,6 +122,8 @@ class CaesarTest: XCTestCase
     // MARK: RANDOM KEY TESTS
 
     /// Test successful key generation.
+    ///
+    /// - Author: Bobby Jap
     func testRandomKey()
     {
         let key = Caesar.generateKey()
@@ -83,6 +135,8 @@ class CaesarTest: XCTestCase
     // MARK: VALIDATE KEY TESTS
 
     /// Test successful key validation.
+    ///
+    /// - Author: Bobby Jap
     func testKeyValidation()
     {
         XCTAssertTrue(Caesar.validate(key: "5"))
