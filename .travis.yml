@@ -6,3 +6,10 @@ script:
     - xcodebuild clean build test -sdk iphonesimulator10.2 -project SwiftCrypt.xcodeproj -scheme SwiftCrypt -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.1'
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'SwiftCrypt'
+notifications:
+  email:
+    recipients:
+      - rwjap85+travisci@gmail.com
+      - tjodox+travisci@gmail.com
+    on_success: never
+    on_failure: always
