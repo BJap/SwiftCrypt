@@ -184,29 +184,3 @@ extension Caesar: Key
         return 0 < k && k < 26
     }
 }
-
-extension Character
-{
-    /// Generates the ASCII Int value of the Character
-    ///
-    /// - Author: Bobby Jap
-    var asciiValue: Int?
-    {
-        let av = String(self).unicodeScalars.filter{$0.isASCII}.first?.value
-        
-        return av != nil ? Int(av!) : nil
-    }
-}
-
-extension Int
-{
-    /// Generates the Character value of an Int
-    ///
-    /// - Author: Bobby Jap
-    var charValue: Character?
-    {
-        let s = UnicodeScalar(self)
-        
-        return s != nil ? Character(s!) : nil
-    }
-}
