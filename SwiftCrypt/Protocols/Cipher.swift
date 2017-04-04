@@ -8,8 +8,8 @@
 
 import Foundation
 
-@objc protocol Cipher
-{    
+protocol Cipher
+{
     /// Encrypts the text.
     ///
     /// - Author: Bobby Jap
@@ -45,5 +45,13 @@ import Foundation
     /// - Parameter text: The text to be prepared.
     ///
     /// - Returns: The prepared text.
-    @objc optional static func prepare(text: String) -> String
+    static func prepare(text: String) -> String
+}
+
+extension Cipher
+{
+    static func prepare(text: String) -> String
+    {
+        return text
+    }
 }
