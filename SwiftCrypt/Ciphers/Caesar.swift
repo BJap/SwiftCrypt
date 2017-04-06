@@ -27,7 +27,7 @@ class Caesar
     ///
     /// - Author: Bobby Jap
     ///
-    /// - Complexity: O(n)
+    /// - Complexity: O(n) where n = input length
     ///
     /// ---
     /// Example:
@@ -87,7 +87,7 @@ extension Caesar: Cipher
     ///
     /// - Author: Bobby Jap
     ///
-    /// - Complexity: O(n)
+    /// - Complexity: O(n) where n = input length
     ///
     /// ---
     /// Example:
@@ -121,7 +121,7 @@ extension Caesar: Cipher
     ///
     /// - Author: Bobby Jap
     ///
-    /// - Complexity: O(n)
+    /// - Complexity: O(n) where n = input length
     ///
     /// ---
     /// Example:

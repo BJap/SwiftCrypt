@@ -21,7 +21,7 @@ class CipherTest: XCTestCase
         let text = "TEST"
         let prepared = CipherTest.prepare(text: text)
 
-        XCTAssertEqual(text, prepared, "Text and preprared text should be equal by default")
+        XCTAssertEqual(prepared, text, "Text and preprared text should be equal by default")
     }
 }
 

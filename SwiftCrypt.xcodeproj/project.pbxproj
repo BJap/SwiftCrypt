@@ -12,6 +12,8 @@
 		AF659BDE1E8A26EC0088CA95 /* Character+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BDD1E8A26EC0088CA95 /* Character+Crypto.swift */; };
 		AF659BE01E904B360088CA95 /* Int+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BDF1E904B360088CA95 /* Int+Crypto.swift */; };
 		AF659BE31E94AF160088CA95 /* CipherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BE21E94AF160088CA95 /* CipherTest.swift */; };
+		AF659BE61E95E8980088CA95 /* Character+CryptoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BE51E95E8980088CA95 /* Character+CryptoTest.swift */; };
+		AF659BE81E95EAE80088CA95 /* Int+CryptoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BE71E95EAE80088CA95 /* Int+CryptoTest.swift */; };
 		AFB1EBEE1E76314200D6E5AA /* Caesar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB1EBED1E76314200D6E5AA /* Caesar.swift */; };
 		AFF5E6D01DDAEEF9001EA42E /* SwiftCrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF5E6C61DDAEEF9001EA42E /* SwiftCrypt.framework */; };
 		AFF5E6D71DDAEEF9001EA42E /* SwiftCrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +37,8 @@
 		AF659BDD1E8A26EC0088CA95 /* Character+Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Character+Crypto.swift"; path = "Categories/Character+Crypto.swift"; sourceTree = "<group>"; };
 		AF659BDF1E904B360088CA95 /* Int+Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+Crypto.swift"; path = "Categories/Int+Crypto.swift"; sourceTree = "<group>"; };
 		AF659BE21E94AF160088CA95 /* CipherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CipherTest.swift; path = Protocols/CipherTest.swift; sourceTree = "<group>"; };
+		AF659BE51E95E8980088CA95 /* Character+CryptoTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Character+CryptoTest.swift"; path = "Categories/Character+CryptoTest.swift"; sourceTree = "<group>"; };
+		AF659BE71E95EAE80088CA95 /* Int+CryptoTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+CryptoTest.swift"; path = "Categories/Int+CryptoTest.swift"; sourceTree = "<group>"; };
 		AFB1EBED1E76314200D6E5AA /* Caesar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Caesar.swift; path = Ciphers/Caesar.swift; sourceTree = "<group>"; };
 		AFF5E6C61DDAEEF9001EA42E /* SwiftCrypt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCrypt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCrypt.h; sourceTree = "<group>"; };
@@ -97,6 +101,15 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		AF659BE41E95E8460088CA95 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				AF659BE51E95E8980088CA95 /* Character+CryptoTest.swift */,
+				AF659BE71E95EAE80088CA95 /* Int+CryptoTest.swift */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		AFB1EBEC1E7630D900D6E5AA /* Ciphers */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +152,7 @@
 		AFF5E6D31DDAEEF9001EA42E /* SwiftCryptTests */ = {
 			isa = PBXGroup;
 			children = (
+				AF659BE41E95E8460088CA95 /* Categories */,
 				AF659BCE1E8107B00088CA95 /* Ciphers */,
 				AF659BE11E94AEEC0088CA95 /* Protocols */,
 				AFF5E6D61DDAEEF9001EA42E /* Info.plist */,
@@ -284,6 +298,8 @@
 			files = (
 				AF659BE31E94AF160088CA95 /* CipherTest.swift in Sources */,
 				AF659BD71E8108DE0088CA95 /* CaesarTest.swift in Sources */,
+				AF659BE81E95EAE80088CA95 /* Int+CryptoTest.swift in Sources */,
+				AF659BE61E95E8980088CA95 /* Character+CryptoTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
