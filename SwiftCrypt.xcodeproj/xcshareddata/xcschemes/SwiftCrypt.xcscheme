@@ -20,6 +20,20 @@
                ReferencedContainer = "container:SwiftCrypt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AFF5E6CE1DDAEEF9001EA42E"
+               BuildableName = "SwiftCryptTests.xctest"
+               BlueprintName = "SwiftCryptTests"
+               ReferencedContainer = "container:SwiftCrypt.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
