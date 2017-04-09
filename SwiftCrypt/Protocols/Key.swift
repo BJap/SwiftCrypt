@@ -12,19 +12,16 @@ protocol Key
 {
     /// Generates a random key.
     ///
-    /// - Returns: A random key.
-    static func randomKey() -> String
-
-    /// Generates a random key.
-    ///
-    /// - Parameter seed: The seed with which to generate random values.
+    /// - Author: Bobby Jap
     ///
     /// - Returns: A random key.
-    static func randomKey(withSeed seed: UInt32) -> String
+    static func generateKey() -> String
 
     /// Validates a key.
     ///
     /// - Parameter key: The key to validate.
+    ///
+    /// - Author: Bobby Jap
     ///
     /// - Returns: Whether or not the key is valid for encryption.
     static func validate(key: String) -> Bool
