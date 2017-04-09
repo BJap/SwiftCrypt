@@ -40,11 +40,11 @@ class CaesarTests: XCTestCase
     {
         let text = ""
         let key = "5"
-        
+
         do
         {
             let cipher = try Caesar.encrypt(text: text, withKey: key)
-            
+
             XCTAssertEqual(cipher, "")
         }
         catch
@@ -78,7 +78,7 @@ class CaesarTests: XCTestCase
         do
         {
             let text = try Caesar.decrypt(cipher: cipher, withKey: key)
-            
+
             XCTAssertEqual(text, "TEST textz!")
         }
         catch
@@ -86,7 +86,7 @@ class CaesarTests: XCTestCase
             XCTFail("Exception shouldn't have been thrown")
         }
     }
-    
+
     /// Test decryption of empty `String`.
     ///
     /// - Author: Bobby Jap
@@ -94,18 +94,18 @@ class CaesarTests: XCTestCase
     {
         let cipher = ""
         let key = "5"
-        
+
         do
         {
             let text = try Caesar.decrypt(cipher: cipher, withKey: key)
-            
+
             XCTAssertEqual(text, "")
         }
         catch
         {
             XCTFail("Exception shouldn't have been thrown")
         }
-        
+
     }
 
     /// Test decryption failure with invalid key.
