@@ -9,16 +9,16 @@
 import XCTest
 @testable import SwiftCrypt
 
-class Int_CryptoTests: XCTestCase
+class IntCryptoTests: XCTestCase
 {
-    // MARK: CHARACTER_CRYPTO TESTS
+    // MARK: INT CRYPTO TESTS
 
     /// Test an `Int` in the ASCII range to `Character` conversion
     ///
     /// - Author: Bobby Jap
     func charValueTest()
     {
-        let i = 65;
+        let i = 65
         let c = i.charValue
 
         XCTAssertEqual(c, "A", "Character value not generating correctly")

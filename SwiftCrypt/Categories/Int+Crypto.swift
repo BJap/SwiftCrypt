@@ -16,7 +16,7 @@ extension Int
     var charValue: Character?
     {
         let s = UnicodeScalar(self)
-        
+
         return s != nil ? Character(s!) : nil
     }
 }
