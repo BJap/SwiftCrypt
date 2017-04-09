@@ -9,9 +9,9 @@
 import XCTest
 @testable import SwiftCrypt
 
-class Character_CryptoTests: XCTestCase
+class CharacterCryptoTests: XCTestCase
 {
-    // MARK: CHARACTER_CRYPTO TESTS
+    // MARK: CHARACTER CRYPTO TESTS
 
     /// Test an ASCII `Character` to `Int` conversion
     ///
@@ -19,7 +19,7 @@ class Character_CryptoTests: XCTestCase
     func asciiValueTest()
     {
         let c: Character = "A"
-        let i = c.asciiValue;
+        let i = c.asciiValue
 
         XCTAssertEqual(i, 65, "ASCII value not generating correctly")
     }

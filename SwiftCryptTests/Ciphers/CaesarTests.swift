@@ -24,7 +24,7 @@ class CaesarTests: XCTestCase
         do
         {
             let cipher = try Caesar.encrypt(text: text, withKey: key)
-            
+
             XCTAssertEqual(cipher, "YJXY yjcye!")
         }
         catch
@@ -32,7 +32,7 @@ class CaesarTests: XCTestCase
             XCTFail("Exception shouldn't have been thrown")
         }
     }
-    
+
     /// Test encryption of empty `String`.
     ///
     /// - Author: Bobby Jap

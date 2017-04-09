@@ -49,9 +49,9 @@ class Caesar
             return nil
         }
 
-        var characters:[Character] = Array(input.characters)
+        var characters: [Character] = Array(input.characters)
         let k = Int(key)!
-        var i = 0;
+        var i = 0
 
         for c in input.characters
         {
@@ -73,7 +73,7 @@ class Caesar
                 }
             }
             else { characters[i] = c }
-            
+
             i += 1
         }
 
@@ -180,7 +180,7 @@ extension Caesar: Key
     public static func validate(key: String) -> Bool
     {
         let k = Int(key) ?? -1
-        
+
         return 0 < k && k < 26
     }
 }
