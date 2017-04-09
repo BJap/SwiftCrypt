@@ -1,5 +1,5 @@
 //
-//  CipherTest.swift
+//  CipherTests.swift
 //  SwiftCrypt
 //
 //  Created by Bobby Jap on 4/4/17.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwiftCrypt
 
-class CipherTest: XCTestCase
+class CipherTests: XCTestCase
 {
     // MARK: CIPHER TESTS
 
@@ -19,13 +19,13 @@ class CipherTest: XCTestCase
     func testPrepare()
     {
         let text = "TEST"
-        let prepared = CipherTest.prepare(text: text)
+        let prepared = CipherTests.prepare(text: text)
 
         XCTAssertEqual(prepared, text, "Text and preprared text should be equal by default")
     }
 }
 
-extension CipherTest: Cipher
+extension CipherTests: Cipher
 {
     /// Stubbed out encryption function for testable class.
     ///

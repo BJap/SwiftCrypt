@@ -1,5 +1,5 @@
 //
-//  CaesarTest.swift
+//  CaesarTests.swift
 //  SwiftCrypt
 //
 //  Created by Bobby Jap on 3/12/17.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwiftCrypt
 
-class CaesarTest: XCTestCase
+class CaesarTests: XCTestCase
 {
     // MARK: ENCRYPTION TESTS
 

@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		AF659BCD1E80FBD30088CA95 /* GeneralErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BCC1E80FBD30088CA95 /* GeneralErrors.swift */; };
-		AF659BD71E8108DE0088CA95 /* CaesarTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BD61E8108DE0088CA95 /* CaesarTest.swift */; };
+		AF659BD71E8108DE0088CA95 /* CaesarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BD61E8108DE0088CA95 /* CaesarTests.swift */; };
 		AF659BDE1E8A26EC0088CA95 /* Character+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BDD1E8A26EC0088CA95 /* Character+Crypto.swift */; };
 		AF659BE01E904B360088CA95 /* Int+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BDF1E904B360088CA95 /* Int+Crypto.swift */; };
-		AF659BE31E94AF160088CA95 /* CipherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BE21E94AF160088CA95 /* CipherTest.swift */; };
-		AF659BE61E95E8980088CA95 /* Character+CryptoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BE51E95E8980088CA95 /* Character+CryptoTest.swift */; };
-		AF659BE81E95EAE80088CA95 /* Int+CryptoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BE71E95EAE80088CA95 /* Int+CryptoTest.swift */; };
+		AF659BE31E94AF160088CA95 /* CipherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BE21E94AF160088CA95 /* CipherTests.swift */; };
+		AF659BE61E95E8980088CA95 /* Character+CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BE51E95E8980088CA95 /* Character+CryptoTests.swift */; };
+		AF659BE81E95EAE80088CA95 /* Int+CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BE71E95EAE80088CA95 /* Int+CryptoTests.swift */; };
 		AFB1EBEE1E76314200D6E5AA /* Caesar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB1EBED1E76314200D6E5AA /* Caesar.swift */; };
 		AFF5E6D01DDAEEF9001EA42E /* SwiftCrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF5E6C61DDAEEF9001EA42E /* SwiftCrypt.framework */; };
 		AFF5E6D71DDAEEF9001EA42E /* SwiftCrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,12 +33,12 @@
 
 /* Begin PBXFileReference section */
 		AF659BCC1E80FBD30088CA95 /* GeneralErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralErrors.swift; path = Errors/GeneralErrors.swift; sourceTree = "<group>"; };
-		AF659BD61E8108DE0088CA95 /* CaesarTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaesarTest.swift; path = Ciphers/CaesarTest.swift; sourceTree = "<group>"; };
+		AF659BD61E8108DE0088CA95 /* CaesarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaesarTests.swift; path = Ciphers/CaesarTests.swift; sourceTree = "<group>"; };
 		AF659BDD1E8A26EC0088CA95 /* Character+Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Character+Crypto.swift"; path = "Categories/Character+Crypto.swift"; sourceTree = "<group>"; };
 		AF659BDF1E904B360088CA95 /* Int+Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+Crypto.swift"; path = "Categories/Int+Crypto.swift"; sourceTree = "<group>"; };
-		AF659BE21E94AF160088CA95 /* CipherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CipherTest.swift; path = Protocols/CipherTest.swift; sourceTree = "<group>"; };
-		AF659BE51E95E8980088CA95 /* Character+CryptoTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Character+CryptoTest.swift"; path = "Categories/Character+CryptoTest.swift"; sourceTree = "<group>"; };
-		AF659BE71E95EAE80088CA95 /* Int+CryptoTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+CryptoTest.swift"; path = "Categories/Int+CryptoTest.swift"; sourceTree = "<group>"; };
+		AF659BE21E94AF160088CA95 /* CipherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CipherTests.swift; path = Protocols/CipherTests.swift; sourceTree = "<group>"; };
+		AF659BE51E95E8980088CA95 /* Character+CryptoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Character+CryptoTests.swift"; path = "Categories/Character+CryptoTests.swift"; sourceTree = "<group>"; };
+		AF659BE71E95EAE80088CA95 /* Int+CryptoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+CryptoTests.swift"; path = "Categories/Int+CryptoTests.swift"; sourceTree = "<group>"; };
 		AFB1EBED1E76314200D6E5AA /* Caesar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Caesar.swift; path = Ciphers/Caesar.swift; sourceTree = "<group>"; };
 		AFF5E6C61DDAEEF9001EA42E /* SwiftCrypt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCrypt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCrypt.h; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		AF659BCE1E8107B00088CA95 /* Ciphers */ = {
 			isa = PBXGroup;
 			children = (
-				AF659BD61E8108DE0088CA95 /* CaesarTest.swift */,
+				AF659BD61E8108DE0088CA95 /* CaesarTests.swift */,
 			);
 			name = Ciphers;
 			sourceTree = "<group>";
@@ -96,7 +96,7 @@
 		AF659BE11E94AEEC0088CA95 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				AF659BE21E94AF160088CA95 /* CipherTest.swift */,
+				AF659BE21E94AF160088CA95 /* CipherTests.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -104,8 +104,8 @@
 		AF659BE41E95E8460088CA95 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				AF659BE51E95E8980088CA95 /* Character+CryptoTest.swift */,
-				AF659BE71E95EAE80088CA95 /* Int+CryptoTest.swift */,
+				AF659BE51E95E8980088CA95 /* Character+CryptoTests.swift */,
+				AF659BE71E95EAE80088CA95 /* Int+CryptoTests.swift */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -296,10 +296,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF659BE31E94AF160088CA95 /* CipherTest.swift in Sources */,
-				AF659BD71E8108DE0088CA95 /* CaesarTest.swift in Sources */,
-				AF659BE81E95EAE80088CA95 /* Int+CryptoTest.swift in Sources */,
-				AF659BE61E95E8980088CA95 /* Character+CryptoTest.swift in Sources */,
+				AF659BE31E94AF160088CA95 /* CipherTests.swift in Sources */,
+				AF659BD71E8108DE0088CA95 /* CaesarTests.swift in Sources */,
+				AF659BE81E95EAE80088CA95 /* Int+CryptoTests.swift in Sources */,
+				AF659BE61E95E8980088CA95 /* Character+CryptoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

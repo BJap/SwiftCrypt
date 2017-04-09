@@ -1,5 +1,5 @@
 //
-//  Int+CryptoTest.swift
+//  Int+CryptoTests.swift
 //  SwiftCrypt
 //
 //  Created by Bobby Jap on 4/5/17.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwiftCrypt
 
-class Int_CryptoTest: XCTestCase
+class Int_CryptoTests: XCTestCase
 {
     // MARK: CHARACTER_CRYPTO TESTS
 
