@@ -42,6 +42,8 @@ protocol Cipher
     ///
     /// - Author: Bobby Jap
     ///
+    /// - Note: This function is optional and, if unimplemented, returns the same text
+    ///
     /// - Parameter text: The text to be prepared.
     ///
     /// - Returns: The prepared text.
