@@ -17,7 +17,7 @@ This is a Cocoa Touch Framework that contains various ciphers for educational pu
 ## Contributions
 In order to contribute, please:
 * Fork this repository
-* Be sure to follow [Allman style](https://en.wikipedia.org/wiki/Indent_style#Allman_style) for coding convention and reference existing files for examples
+* Be sure to follow [Jap style](https://github.com/BJap/SwiftCrypt/blob/master/STYLE.md) for coding convention and reference existing files for examples
 * If you contribute a cipher, please implement all the relevant protocols
 * Document everything as shown in existing classes
 * Write sufficient tests for contributions ([TDD](https://en.wikipedia.org/wiki/Test-driven_development) recommended) and run them
