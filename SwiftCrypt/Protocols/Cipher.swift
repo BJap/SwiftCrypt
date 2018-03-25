@@ -38,7 +38,7 @@ protocol Cipher {
 }
 
 extension Cipher {
-    /// Default implementation for text preparation
+    /// Default implementation for text preparation.
     ///
     /// - Parameter text: The text to be prepared.
     /// - Returns: The same text that was input.

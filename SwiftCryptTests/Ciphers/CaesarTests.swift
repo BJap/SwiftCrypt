@@ -14,13 +14,13 @@ class CaesarTests: XCTestCase {
 
     /// Test successful encryption.
     func testEncrypt() {
-        let text = "TEST textz!"
+        let text = "TESTZ textz!"
         let key = "5"
 
         do {
             let cipher = try Caesar.encrypt(text: text, withKey: key)
 
-            XCTAssertEqual(cipher, "YJXY yjcye!")
+            XCTAssertEqual(cipher, "YJXYE yjcye!")
         } catch {
             XCTFail("Exception shouldn't have been thrown")
         }
@@ -41,9 +41,23 @@ class CaesarTests: XCTestCase {
         }
     }
 
+    /// Test encryption of emoji `String`.
+    func testEncryptEmojiString() {
+        let text = "🤓"
+        let key = "5"
+
+        do {
+            let cipher = try Caesar.encrypt(text: text, withKey: key)
+
+            XCTAssertEqual(cipher, "🤓")
+        } catch {
+            XCTFail("Exception shouldn't have been thrown")
+        }
+    }
+
     /// Test encryption failure with invalid key.
     func testEncryptWithInvalidKey() {
-        let text = "TEST textz!"
+        let text = "TESTZ textz!"
         let key = "K"
 
         XCTAssertThrowsError(try Caesar.encrypt(text: text, withKey: key))
@@ -53,13 +67,13 @@ class CaesarTests: XCTestCase {
 
     /// Test successful decryption.
     func testDecrypt() {
-        let cipher = "YJXY yjcye!"
+        let cipher = "YJXYE yjcye!"
         let key = "5"
 
         do {
             let text = try Caesar.decrypt(cipher: cipher, withKey: key)
 
-            XCTAssertEqual(text, "TEST textz!")
+            XCTAssertEqual(text, "TESTZ textz!")
         } catch {
             XCTFail("Exception shouldn't have been thrown")
         }
@@ -80,9 +94,23 @@ class CaesarTests: XCTestCase {
 
     }
 
+    /// Test decryption of emoji `String`.
+    func testDecryptEmojiString() {
+        let cipher = "🤓"
+        let key = "5"
+
+        do {
+            let text = try Caesar.decrypt(cipher: cipher, withKey: key)
+
+            XCTAssertEqual(text, "🤓")
+        } catch {
+            XCTFail("Exception shouldn't have been thrown")
+        }
+    }
+
     /// Test decryption failure with invalid key.
     func testDecryptWithInvalidKey() {
-        let cipher = "YJXY yjcye!"
+        let cipher = "YJXYE yjcye!"
         let key = "K"
 
         XCTAssertThrowsError(try Caesar.decrypt(cipher: cipher, withKey: key))
