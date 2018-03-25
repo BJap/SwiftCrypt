@@ -6,18 +6,16 @@
 //  Copyright © 2017 Bobby Jap. All rights reserved.
 //
 
-import XCTest
 @testable import SwiftCrypt
+import XCTest
 
-class IntCryptoTests: XCTestCase
-{
+class IntCryptoTests: XCTestCase {
     // MARK: INT CRYPTO TESTS
 
     /// Test an `Int` in the ASCII range to `Character` conversion
     ///
     /// - Author: Bobby Jap
-    func charValueTest()
-    {
+    func charValueTest() {
         let i = 65
         let c = i.charValue
 
@@ -27,8 +25,7 @@ class IntCryptoTests: XCTestCase
     /// Test an `Int` outside the ASCII range to `Character` conversion
     ///
     /// - Author: Bobby Jap
-    func nonAsciiValueTest()
-    {
+    func nonAsciiValueTest() {
         let i = 128
 
         XCTAssertNil(i.charValue, "Character value should not have generated")

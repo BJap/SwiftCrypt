@@ -8,13 +8,12 @@
 
 import Foundation
 
-class Caesar
-{
+/// The Ceasar Cipher
+class Caesar {
     /// A set of rules to determine how to shift each Latin `Character` in a `String`
     ///
     /// - Author: Bobby Jap
-    struct Shifter
-    {
+    struct Shifter {
         let shift: (Int, Int) -> Int
         let wrap: (Int) -> Int
         let bigBoundExceeded: (Int) -> Bool
@@ -42,47 +41,43 @@ class Caesar
     /// - Parameter shifter: The shifter rules that specify how to shift each character.
     ///
     /// - Returns: The shifted input.
-    static func shift(input: String, withKey key: String, usingShifter shifter: Shifter) -> String?
-    {
-        if !validate(key: key)
-        {
+    static func shift(input: String, withKey key: String, usingShifter shifter: Shifter) -> String? {
+        guard validate(key: key) else {
             return nil
         }
 
-        var characters: [Character] = Array(input.characters)
+        var output = ""
         let k = Int(key)!
-        var i = 0
 
-        for c in input.characters
-        {
-            if var av = c.asciiValue
-            {
+        for c in input {
+            if var av = c.asciiValue {
                 av = shifter.shift(av, k)
 
-                if ("A" as Character) <= c && c <= ("Z" as Character)
-                {
-                    if shifter.bigBoundExceeded(av) { av = shifter.wrap(av) }
+                if ("A" as Character) <= c && c <= ("Z" as Character) {
+                    if shifter.bigBoundExceeded(av) {
+                        av = shifter.wrap(av)
+                    }
 
-                    characters[i] = av.charValue!
-                }
-                else if ("a" as Character) <= c && c <= ("z" as Character)
-                {
-                    if shifter.smallBoundExceeded(av) { av = shifter.wrap(av) }
+                    output += String(av.charValue!)
+                } else if ("a" as Character) <= c && c <= ("z" as Character) {
+                    if shifter.smallBoundExceeded(av) {
+                        av = shifter.wrap(av)
+                    }
 
-                    characters[i] = av.charValue!
+                    output += String(av.charValue!)
+                } else {
+                    output += String(c)
                 }
+            } else {
+                output += String(c)
             }
-            else { characters[i] = c }
-
-            i += 1
         }
 
-        return String(characters)
+        return output
     }
 }
 
-extension Caesar: Cipher
-{
+extension Caesar: Cipher {
     /// Encrypts the text using the Caesar shift cipher.
     ///
     /// - Author: Bobby Jap
@@ -102,16 +97,14 @@ extension Caesar: Cipher
     /// - Throws: `InputError.InvalidKey` when an invalid key is used.
     ///
     /// - Returns: The encrypted ciphertext.
-    public static func encrypt(text: String, withKey key: String) throws -> String
-    {
+    public static func encrypt(text: String, withKey key: String) throws -> String {
         let shifter = Shifter(shift: { $0 + $1 },
                               wrap: { $0 - 26 },
                               bigBoundExceeded: { $0 > ("Z" as Character).asciiValue! },
                               smallBoundExceeded: { $0 > ("z" as Character).asciiValue! })
 
-        guard let cipher = shift(input: text, withKey: key, usingShifter: shifter) else
-        {
-            throw InputError.InvalidKey(message: invalidCaesarKey)
+        guard let cipher = shift(input: text, withKey: key, usingShifter: shifter) else {
+            throw InputError.invalidKey(message: invalidCaesarKey)
         }
 
         return cipher
@@ -136,31 +129,27 @@ extension Caesar: Cipher
     /// - Throws: `InputError.InvalidKey` when an invalid key is used.
     ///
     /// - Returns: The decrypted text.
-    public static func decrypt(cipher: String, withKey key: String) throws -> String
-    {
+    public static func decrypt(cipher: String, withKey key: String) throws -> String {
         let shifter = Shifter(shift: { $0 - $1 },
                               wrap: { $0 + 26 },
                               bigBoundExceeded: { $0 < ("A" as Character).asciiValue! },
                               smallBoundExceeded: { $0 < ("a" as Character).asciiValue! })
 
-        guard let text = shift(input: cipher, withKey: key, usingShifter: shifter) else
-        {
-            throw InputError.InvalidKey(message: invalidCaesarKey)
+        guard let text = shift(input: cipher, withKey: key, usingShifter: shifter) else {
+            throw InputError.invalidKey(message: invalidCaesarKey)
         }
 
         return text
     }
 }
 
-extension Caesar: Key
-{
+extension Caesar: Key {
     /// Generates a random key as a number from 1 to 25.
     ///
     /// - Author: Bobby Jap
     ///
     /// - Returns: A random key.
-    public static func generateKey() -> String
-    {
+    public static func generateKey() -> String {
         return String(arc4random_uniform(24) + 1)
     }
 
@@ -177,8 +166,7 @@ extension Caesar: Key
     /// ---
     ///
     /// - Returns: Whether or not the key is valid for encryption.
-    public static func validate(key: String) -> Bool
-    {
+    public static func validate(key: String) -> Bool {
         let k = Int(key) ?? -1
 
         return 0 < k && k < 26

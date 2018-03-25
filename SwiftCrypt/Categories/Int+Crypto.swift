@@ -8,13 +8,11 @@
 
 import Foundation
 
-extension Int
-{
+extension Int {
     /// Generates the Character value of an Int
     ///
     /// - Author: Bobby Jap
-    var charValue: Character?
-    {
+    var charValue: Character? {
         let s = UnicodeScalar(self)
 
         return s != nil ? Character(s!) : nil

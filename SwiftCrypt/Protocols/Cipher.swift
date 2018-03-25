@@ -8,8 +8,7 @@
 
 import Foundation
 
-protocol Cipher
-{
+protocol Cipher {
     /// Encrypts the text.
     ///
     /// - Author: Bobby Jap
@@ -50,10 +49,8 @@ protocol Cipher
     static func prepare(text: String) -> String
 }
 
-extension Cipher
-{
-    static func prepare(text: String) -> String
-    {
+extension Cipher {
+    public static func prepare(text: String) -> String {
         return text
     }
 }

@@ -6,29 +6,24 @@
 //  Copyright © 2017 Bobby Jap. All rights reserved.
 //
 
-import XCTest
 @testable import SwiftCrypt
+import XCTest
 
-class CaesarTests: XCTestCase
-{
+class CaesarTests: XCTestCase {
     // MARK: ENCRYPTION TESTS
 
     /// Test successful encryption.
     ///
     /// - Author: Bobby Jap
-    func testEncrypt()
-    {
+    func testEncrypt() {
         let text = "TEST textz!"
         let key = "5"
 
-        do
-        {
+        do {
             let cipher = try Caesar.encrypt(text: text, withKey: key)
 
             XCTAssertEqual(cipher, "YJXY yjcye!")
-        }
-        catch
-        {
+        } catch {
             XCTFail("Exception shouldn't have been thrown")
         }
     }
@@ -36,29 +31,24 @@ class CaesarTests: XCTestCase
     /// Test encryption of empty `String`.
     ///
     /// - Author: Bobby Jap
-    func testEncryptEmptyString()
-    {
+    func testEncryptEmptyString() {
         let text = ""
         let key = "5"
 
-        do
-        {
+        do {
             let cipher = try Caesar.encrypt(text: text, withKey: key)
 
             XCTAssertEqual(cipher, "")
-        }
-        catch
-        {
+        } catch {
+
             XCTFail("Exception shouldn't have been thrown")
         }
-
     }
 
     /// Test encryption failure with invalid key.
     ///
     /// - Author: Bobby Jap
-    func testEncryptWithInvalidKey()
-    {
+    func testEncryptWithInvalidKey() {
         let text = "TEST textz!"
         let key = "K"
 
@@ -70,19 +60,15 @@ class CaesarTests: XCTestCase
     /// Test successful decryption.
     ///
     /// - Author: Bobby Jap
-    func testDecrypt()
-    {
+    func testDecrypt() {
         let cipher = "YJXY yjcye!"
         let key = "5"
 
-        do
-        {
+        do {
             let text = try Caesar.decrypt(cipher: cipher, withKey: key)
 
             XCTAssertEqual(text, "TEST textz!")
-        }
-        catch
-        {
+        } catch {
             XCTFail("Exception shouldn't have been thrown")
         }
     }
@@ -90,19 +76,15 @@ class CaesarTests: XCTestCase
     /// Test decryption of empty `String`.
     ///
     /// - Author: Bobby Jap
-    func testDecryptEmptyString()
-    {
+    func testDecryptEmptyString() {
         let cipher = ""
         let key = "5"
 
-        do
-        {
+        do {
             let text = try Caesar.decrypt(cipher: cipher, withKey: key)
 
             XCTAssertEqual(text, "")
-        }
-        catch
-        {
+        } catch {
             XCTFail("Exception shouldn't have been thrown")
         }
 
@@ -111,8 +93,7 @@ class CaesarTests: XCTestCase
     /// Test decryption failure with invalid key.
     ///
     /// - Author: Bobby Jap
-    func testDecryptWithInvalidKey()
-    {
+    func testDecryptWithInvalidKey() {
         let cipher = "YJXY yjcye!"
         let key = "K"
 
@@ -124,8 +105,7 @@ class CaesarTests: XCTestCase
     /// Test successful key generation.
     ///
     /// - Author: Bobby Jap
-    func testRandomKey()
-    {
+    func testRandomKey() {
         let key = Caesar.generateKey()
 
         XCTAssertTrue(Int(key)! > 0)
@@ -137,8 +117,7 @@ class CaesarTests: XCTestCase
     /// Test successful key validation.
     ///
     /// - Author: Bobby Jap
-    func testKeyValidation()
-    {
+    func testKeyValidation() {
         XCTAssertTrue(Caesar.validate(key: "5"))
         XCTAssertFalse(Caesar.validate(key: "-1"))
         XCTAssertFalse(Caesar.validate(key: "0"))

@@ -8,8 +8,7 @@
 
 import Foundation
 
-protocol Key
-{
+protocol Key {
     /// Generates a random key.
     ///
     /// - Author: Bobby Jap
