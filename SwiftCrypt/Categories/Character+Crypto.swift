@@ -9,9 +9,7 @@
 import Foundation
 
 extension Character {
-    /// Generates the ASCII Int value of the Character
-    ///
-    /// - Author: Bobby Jap
+    /// Generates the ASCII `Int` value of the `Character`.
     var asciiValue: Int? {
         let av = String(self).unicodeScalars.filter { $0.isASCII }.first?.value
 

@@ -13,8 +13,6 @@ class CipherTests: XCTestCase {
     // MARK: CIPHER TESTS
 
     /// Test default implementation of the prepare function.
-    ///
-    /// - Author: Bobby Jap
     func testPrepare() {
         let text = "TEST"
         let prepared = CipherProtocol.prepare(text: text)
@@ -25,15 +23,11 @@ class CipherTests: XCTestCase {
 
 private class CipherProtocol: Cipher {
     /// Stubbed out encryption function for testable class.
-    ///
-    /// - Author: Bobby Jap
     static func encrypt(text: String, withKey key: String) throws -> String {
         return text
     }
 
     /// Stubbed out decryption function for testable class.
-    ///
-    /// - Author: Bobby Jap
     static func decrypt(cipher: String, withKey key: String) throws -> String {
         return cipher
     }

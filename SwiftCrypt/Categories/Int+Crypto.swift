@@ -9,9 +9,7 @@
 import Foundation
 
 extension Int {
-    /// Generates the Character value of an Int
-    ///
-    /// - Author: Bobby Jap
+    /// Generates the `Character` value of an `Int`.
     var charValue: Character? {
         let s = UnicodeScalar(self)
 

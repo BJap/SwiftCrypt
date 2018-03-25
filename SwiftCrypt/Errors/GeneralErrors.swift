@@ -8,9 +8,7 @@
 
 import Foundation
 
-/// An error to use when an invalid func parameter is used
-///
-/// - Author: Bobby Jap
+/// An error to use when an invalid func parameter is used.
 enum InputError: Error {
     case invalidKey(message: String)
 }

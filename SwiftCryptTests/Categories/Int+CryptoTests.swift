@@ -12,9 +12,7 @@ import XCTest
 class IntCryptoTests: XCTestCase {
     // MARK: INT CRYPTO TESTS
 
-    /// Test an `Int` in the ASCII range to `Character` conversion
-    ///
-    /// - Author: Bobby Jap
+    /// Test an `Int` in the ASCII range to `Character` conversion.
     func charValueTest() {
         let i = 65
         let c = i.charValue
@@ -22,9 +20,7 @@ class IntCryptoTests: XCTestCase {
         XCTAssertEqual(c, "A", "Character value not generating correctly")
     }
 
-    /// Test an `Int` outside the ASCII range to `Character` conversion
-    ///
-    /// - Author: Bobby Jap
+    /// Test an `Int` outside the ASCII range to `Character` conversion.
     func nonAsciiValueTest() {
         let i = 128
 
