@@ -1,9 +1,9 @@
 language: objective-c
 xcode_project: SwiftCrypt.xcodeproj
 xcode_scheme: SwiftCrypt
-osx_image: xcode8.2
+osx_image: xcode9.2
 script:
-    - xcodebuild clean build test -sdk iphonesimulator10.2 -project SwiftCrypt.xcodeproj -scheme SwiftCrypt -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.1'
+    - xcodebuild clean build test -sdk iphonesimulator11.2 -project SwiftCrypt.xcodeproj -scheme SwiftCrypt -destination 'platform=iOS Simulator,name=iPhone 7,OS=11.2'
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'SwiftCrypt'
 notifications:
