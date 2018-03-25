@@ -8,11 +8,8 @@
 
 import Foundation
 
-protocol Key
-{
+protocol Key {
     /// Generates a random key.
-    ///
-    /// - Author: Bobby Jap
     ///
     /// - Returns: A random key.
     static func generateKey() -> String
@@ -20,9 +17,6 @@ protocol Key
     /// Validates a key.
     ///
     /// - Parameter key: The key to validate.
-    ///
-    /// - Author: Bobby Jap
-    ///
     /// - Returns: Whether or not the key is valid for encryption.
     static func validate(key: String) -> Bool
 }
