@@ -30,4 +30,13 @@ extension Character {
             return true
         }
     }
+
+    /// Whether or not the `Character` is a letter is lowercase.
+    var isLowercase: Bool {
+        if ("A" as Character) <= self && self <= ("Z" as Character) {
+            return false
+        } else {
+            return true
+        }
+    }
 }

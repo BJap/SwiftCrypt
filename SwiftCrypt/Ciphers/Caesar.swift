@@ -12,8 +12,8 @@ import Foundation
 class Caesar {
     /// A set of rules to determine how to shift each Latin `Character` in a `String`.
     private struct Shifter {
-        let operation: (Int, Int) -> Int
-        let wrap: (Int) -> Int
+        let shift: (Int, Int) -> Int
+        let wrap: (Int, Int) -> Int
         let uppercaseBoundExceeded: (Int) -> Bool
         let lowercaseBoundExceeded: (Int) -> Bool
 
@@ -26,16 +26,10 @@ class Caesar {
         func shift(input: Character, distance: Int) -> Character {
             guard input.isALetter else { return input }
 
-            var av = operation(input.asciiValue!, distance)
+            var av = shift(input.asciiValue!, distance)
 
-            if input.isUppercase {
-                if uppercaseBoundExceeded(av) {
-                    av = wrap(av)
-                }
-            } else {
-                if lowercaseBoundExceeded(av) {
-                    av = wrap(av)
-                }
+            if (input.isUppercase && uppercaseBoundExceeded(av)) || (input.isLowercase && lowercaseBoundExceeded(av)) {
+                    av = wrap(av, 26)
             }
 
             return av.charValue!
@@ -66,13 +60,13 @@ class Caesar {
         }
     }
 
-    private static let leftShifter = Shifter(operation: { $0 - $1 },
-                                      wrap: { $0 + 26 },
+    private static let leftShifter = Shifter(shift: -,
+                                      wrap: +,
                                       uppercaseBoundExceeded: { $0 < "A".first!.asciiValue! },
                                       lowercaseBoundExceeded: { $0 < "a".first!.asciiValue! })
 
-    private static let rightShifter = Shifter(operation: { $0 + $1 },
-                                       wrap: { $0 - 26 },
+    private static let rightShifter = Shifter(shift: +,
+                                       wrap: -,
                                        uppercaseBoundExceeded: { $0 > "Z".first!.asciiValue! },
                                        lowercaseBoundExceeded: { $0 > "z".first!.asciiValue! })
 

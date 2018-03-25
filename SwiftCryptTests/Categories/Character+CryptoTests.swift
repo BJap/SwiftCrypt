@@ -63,23 +63,65 @@ class CharacterCryptoTests: XCTestCase {
     }
 
     /// Test if a `Character` with a number is correctly reported as uppercase.
-    func testNumberIsNotUppercase() {
+    func testNumberIsUppercase() {
         let c: Character = "1"
 
         XCTAssertTrue(c.isUppercase, "Number Character is not reporting uppercase correctly")
     }
 
     /// Test if a `Character` with an ASCII symbol is correctly reported as uppercase.
-    func testAsciiSymbolIsNotUppercase() {
+    func testAsciiSymbolIsUppercase() {
         let c: Character = "!"
 
         XCTAssertTrue(c.isUppercase, "ASCII symbol Character is not reporting uppercase correctly")
     }
 
     /// Test if a `Character` with an Emoji is correctly reported as uppercase.
-    func testEmojiIsNotUppercase() {
+    func testEmojiIsUppercase() {
         let c: Character = "🤓"
 
         XCTAssertTrue(c.isUppercase, "Emoji Character is not reporting uppercase correctly")
+    }
+
+    /// Test if a `Character` that is an lowercase letter is correctly reported as not uppercase.
+    func testLowercaseLetterIsNotUppercase() {
+        let c: Character = "s"
+
+        XCTAssertFalse(c.isUppercase, "Lowercase Character is not reporting uppercase correctly")
+    }
+
+    /// Test if a `Character` that is an uppercase letter is correctly reported as lowercase.
+    func testLowercaseLetterIsLowercase() {
+        let c: Character = "s"
+
+        XCTAssertTrue(c.isLowercase, "Uppercase Character is not reporting lowercase correctly")
+    }
+
+    /// Test if a `Character` with a number is correctly reported as lowercase.
+    func testNumberIsLowercase() {
+        let c: Character = "1"
+
+        XCTAssertTrue(c.isLowercase, "Number Character is not reporting lowercase correctly")
+    }
+
+    /// Test if a `Character` with an ASCII symbol is correctly reported as lowercase.
+    func testAsciiSymbolIsLowercase() {
+        let c: Character = "!"
+
+        XCTAssertTrue(c.isLowercase, "ASCII symbol Character is not reporting lowercase correctly")
+    }
+
+    /// Test if a `Character` with an Emoji is correctly reported as lowercase.
+    func testEmojiIsLowercase() {
+        let c: Character = "🤓"
+
+        XCTAssertTrue(c.isLowercase, "Emoji Character is not reporting lowercase correctly")
+    }
+
+    /// Test if a `Character` that is an uppercase letter is correctly reported as not lowercase.
+    func testUppercaseLetterIsNotLowercase() {
+        let c: Character = "S"
+
+        XCTAssertFalse(c.isLowercase, "Uppercase Character is not reporting lowercase correctly")
     }
 }
