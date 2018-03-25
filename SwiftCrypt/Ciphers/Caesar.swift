@@ -11,62 +11,72 @@ import Foundation
 /// The Ceasar Cipher.
 class Caesar {
     /// A set of rules to determine how to shift each Latin `Character` in a `String`.
-    struct Shifter {
-        let shift: (Int, Int) -> Int
+    private struct Shifter {
+        let operation: (Int, Int) -> Int
         let wrap: (Int) -> Int
-        let bigBoundExceeded: (Int) -> Bool
-        let smallBoundExceeded: (Int) -> Bool
-    }
+        let uppercaseBoundExceeded: (Int) -> Bool
+        let lowercaseBoundExceeded: (Int) -> Bool
 
-    static let invalidCaesarKey = "The given key is invalid and must be a number from 1 to 25"
+        /// Shifts the `Character` if it is ASCII the appropriate count.
+        ///
+        /// - Parameters:
+        ///   - input: The `Character` to be shifted.
+        ///   - distance: The distance to shift the `Character` input.
+        /// - Returns: The shifted `Character`.
+        func shift(input: Character, distance: Int) -> Character {
+            guard input.isALetter else { return input }
 
-    /// Shifts all the ASCII characters in the input the appropriate direction and count.
-    ///
-    /// - Complexity: O(n) where n = input length
-    /// ---
-    /// Example:
-    ///
-    ///     shift("Hello World", withKey: "5", usingShifter: shifter)
-    /// ---
-    /// - Parameters:
-    ///   - input: The text to be shifted.
-    ///   - key: The key with which to shift the input.
-    ///   - shifter: The shifter rules that specify how to shift each character.
-    /// - Returns: The shifted input.
-    static func shift(input: String, withKey key: String, usingShifter shifter: Shifter) -> String? {
-        guard validate(key: key) else {
-            return nil
-        }
+            var av = operation(input.asciiValue!, distance)
 
-        var output = ""
-        let k = Int(key)!
-
-        for c in input {
-            if var av = c.asciiValue {
-                av = shifter.shift(av, k)
-
-                if ("A" as Character) <= c && c <= ("Z" as Character) {
-                    if shifter.bigBoundExceeded(av) {
-                        av = shifter.wrap(av)
-                    }
-
-                    output += String(av.charValue!)
-                } else if ("a" as Character) <= c && c <= ("z" as Character) {
-                    if shifter.smallBoundExceeded(av) {
-                        av = shifter.wrap(av)
-                    }
-
-                    output += String(av.charValue!)
-                } else {
-                    output += String(c)
+            if input.isUppercase {
+                if uppercaseBoundExceeded(av) {
+                    av = wrap(av)
                 }
             } else {
-                output += String(c)
+                if lowercaseBoundExceeded(av) {
+                    av = wrap(av)
+                }
             }
+
+            return av.charValue!
         }
 
-        return output
+        /// Shifts every `Character` that is ASCII in the input `String` the appropriate direction and count.
+        ///
+        /// - Complexity: O(n) where n = input length
+        /// ---
+        /// Example:
+        ///
+        ///     shift("Hello World", withKey: "5", usingShifter: shifter)
+        /// ---
+        /// - Parameters:
+        ///   - input: The `String` to be shifted.
+        ///   - distance: The distance to shift each `Character` in the `String` input.
+        /// - Returns: The shifted input.
+        func shift(input: String, distance: Int) -> String {
+            var output = ""
+
+            for c in input {
+                let shiftedLetter = shift(input: c, distance: distance)
+
+                output += String(shiftedLetter)
+            }
+
+            return output
+        }
     }
+
+    private static let leftShifter = Shifter(operation: { $0 - $1 },
+                                      wrap: { $0 + 26 },
+                                      uppercaseBoundExceeded: { $0 < "A".first!.asciiValue! },
+                                      lowercaseBoundExceeded: { $0 < "a".first!.asciiValue! })
+
+    private static let rightShifter = Shifter(operation: { $0 + $1 },
+                                       wrap: { $0 - 26 },
+                                       uppercaseBoundExceeded: { $0 > "Z".first!.asciiValue! },
+                                       lowercaseBoundExceeded: { $0 > "z".first!.asciiValue! })
+
+    private static let invalidCaesarKey = "The given key is invalid and must be a number from 1 to 25"
 }
 
 extension Caesar: Cipher {
@@ -84,16 +94,13 @@ extension Caesar: Cipher {
     /// - Throws: `InputError.invalidKey` when an invalid key is used.
     /// - Returns: The encrypted ciphertext.
     public static func encrypt(text: String, withKey key: String) throws -> String {
-        let shifter = Shifter(shift: { $0 + $1 },
-                              wrap: { $0 - 26 },
-                              bigBoundExceeded: { $0 > ("Z" as Character).asciiValue! },
-                              smallBoundExceeded: { $0 > ("z" as Character).asciiValue! })
-
-        guard let cipher = shift(input: text, withKey: key, usingShifter: shifter) else {
+        guard validate(key: key) else {
             throw InputError.invalidKey(message: invalidCaesarKey)
         }
 
-        return cipher
+        let d = Int(key)!
+
+        return rightShifter.shift(input: text, distance: d)
     }
 
     /// Decrypts the text.
@@ -110,16 +117,13 @@ extension Caesar: Cipher {
     /// - Throws: `InputError.invalidKey` when an invalid key is used.
     /// - Returns: The decrypted text.
     public static func decrypt(cipher: String, withKey key: String) throws -> String {
-        let shifter = Shifter(shift: { $0 - $1 },
-                              wrap: { $0 + 26 },
-                              bigBoundExceeded: { $0 < ("A" as Character).asciiValue! },
-                              smallBoundExceeded: { $0 < ("a" as Character).asciiValue! })
-
-        guard let text = shift(input: cipher, withKey: key, usingShifter: shifter) else {
+        guard validate(key: key) else {
             throw InputError.invalidKey(message: invalidCaesarKey)
         }
 
-        return text
+        let d = Int(key)!
+
+        return leftShifter.shift(input: cipher, distance: d)
     }
 }
 
