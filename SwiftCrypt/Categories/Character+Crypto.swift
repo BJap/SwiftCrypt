@@ -24,19 +24,11 @@ extension Character {
 
     /// Whether or not the `Character` is a letter is uppercase.
     var isUppercase: Bool {
-        if ("a" as Character) <= self && self <= ("z" as Character) {
-            return false
-        } else {
-            return true
-        }
+        return !(("a" as Character) <= self && self <= ("z" as Character))
     }
 
     /// Whether or not the `Character` is a letter is lowercase.
     var isLowercase: Bool {
-        if ("A" as Character) <= self && self <= ("Z" as Character) {
-            return false
-        } else {
-            return true
-        }
+        return !(("A" as Character) <= self && self <= ("Z" as Character))
     }
 }

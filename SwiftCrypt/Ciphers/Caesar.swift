@@ -62,13 +62,13 @@ class Caesar {
 
     private static let leftShifter = Shifter(shift: -,
                                       wrap: +,
-                                      uppercaseBoundExceeded: { $0 < "A".first!.asciiValue! },
-                                      lowercaseBoundExceeded: { $0 < "a".first!.asciiValue! })
+                                      uppercaseBoundExceeded: { $0 < ("A" as Character).asciiValue! },
+                                      lowercaseBoundExceeded: { $0 < ("a" as Character).asciiValue! })
 
     private static let rightShifter = Shifter(shift: +,
                                        wrap: -,
-                                       uppercaseBoundExceeded: { $0 > "Z".first!.asciiValue! },
-                                       lowercaseBoundExceeded: { $0 > "z".first!.asciiValue! })
+                                       uppercaseBoundExceeded: { $0 > ("Z" as Character).asciiValue! },
+                                       lowercaseBoundExceeded: { $0 > ("z" as Character).asciiValue! })
 
     private static let invalidCaesarKey = "The given key is invalid and must be a number from 1 to 25"
 }
