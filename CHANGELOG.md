@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
 ### Changed
 - Project to Xcode 9.2 Swift 4.1
 - Allman to 1TBS
+- Cleaner code
+- Scope fixes
+- Apple Doc fixes
 
 ### Removed
 - STYLE.md
