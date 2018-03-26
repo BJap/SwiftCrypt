@@ -41,7 +41,7 @@ class CaesarTests: XCTestCase {
         }
     }
 
-    /// Test encryption of emoji `String`.
+    /// Test encryption of Emoji `String`.
     func testEncryptEmojiString() {
         let text = "🤓"
         let key = "5"
@@ -94,7 +94,7 @@ class CaesarTests: XCTestCase {
 
     }
 
-    /// Test decryption of emoji `String`.
+    /// Test decryption of Emoji `String`.
     func testDecryptEmojiString() {
         let cipher = "🤓"
         let key = "5"
