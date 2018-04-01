@@ -16,19 +16,19 @@ extension Character {
         return av != nil ? Int(av!) : nil
     }
 
-    /// Whether or not the `Character` is a letter.
-    var isALetter: Bool {
+    /// Whether or not the `Character` is an ASCII letter.
+    var isAsciiLetter: Bool {
         return (("A" as Character) <= self && self <= ("Z" as Character)) ||
             (("a" as Character) <= self && self <= ("z" as Character))
     }
 
-    /// Whether or not the `Character` is a letter is uppercase.
-    var isUppercase: Bool {
-        return !(("a" as Character) <= self && self <= ("z" as Character))
+    /// Whether or not the `Character` is an uppercase ASCII letter.
+    var isUppercaseAsciiLetter: Bool {
+        return ("A" as Character) <= self && self <= ("Z" as Character)
     }
 
-    /// Whether or not the `Character` is a letter is lowercase.
-    var isLowercase: Bool {
-        return !(("A" as Character) <= self && self <= ("Z" as Character))
+    /// Whether or not the `Character` is a lowercase ASCII letter.
+    var isLowercaseAsciiLetter: Bool {
+        return ("a" as Character) <= self && self <= ("z" as Character)
     }
 }

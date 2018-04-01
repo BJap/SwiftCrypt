@@ -24,11 +24,12 @@ class Caesar {
         ///   - distance: The distance to shift the `Character` input.
         /// - Returns: The shifted `Character`.
         func shift(input: Character, distance: Int) -> Character {
-            guard input.isALetter else { return input }
+            guard input.isAsciiLetter else { return input }
 
             var av = shift(input.asciiValue!, distance)
 
-            if (input.isUppercase && uppercaseBoundExceeded(av)) || (input.isLowercase && lowercaseBoundExceeded(av)) {
+            if (input.isUppercaseAsciiLetter && uppercaseBoundExceeded(av)) ||
+                (input.isLowercaseAsciiLetter && lowercaseBoundExceeded(av)) {
                     av = wrap(av, 26)
             }
 
