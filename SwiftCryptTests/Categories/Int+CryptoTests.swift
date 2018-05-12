@@ -13,17 +13,24 @@ class IntCryptoTests: XCTestCase {
     // MARK: INT CRYPTO TESTS
 
     /// Test an `Int` in the ASCII range to `Character` conversion.
-    func charValueTest() {
+    func testCharValue() {
         let i = 65
-        let c = i.charValue
+        let c = i.asciiValue
 
-        XCTAssertEqual(c, "A", "Character value not generating correctly")
+        XCTAssertEqual(c, "A", "Letter value not generating correctly")
     }
 
     /// Test an `Int` outside the ASCII range to `Character` conversion.
-    func nonAsciiValueTest() {
+    func testNonAsciiValue() {
         let i = 128
 
-        XCTAssertNil(i.charValue, "Character value should not have generated")
+        XCTAssertNil(i.asciiValue, "Letter value should not have generated")
+    }
+
+    /// Test an `Int` outside the `UnicodeScaler` range to `Character` conversion.
+    func testNonUnicodeScalerValue() {
+        let i = 2000000
+
+        XCTAssertNil(i.asciiValue, "Letter value should not have generated")
     }
 }

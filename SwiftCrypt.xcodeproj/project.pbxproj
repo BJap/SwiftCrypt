@@ -15,6 +15,7 @@
 		AF659BE61E95E8980088CA95 /* Character+CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BE51E95E8980088CA95 /* Character+CryptoTests.swift */; };
 		AF659BE81E95EAE80088CA95 /* Int+CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF659BE71E95EAE80088CA95 /* Int+CryptoTests.swift */; };
 		AFB1EBEE1E76314200D6E5AA /* Caesar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB1EBED1E76314200D6E5AA /* Caesar.swift */; };
+		AFE5CB2A20A6D76200905273 /* Shifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5CB2920A6D76200905273 /* Shifter.swift */; };
 		AFF5E6D01DDAEEF9001EA42E /* SwiftCrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF5E6C61DDAEEF9001EA42E /* SwiftCrypt.framework */; };
 		AFF5E6D71DDAEEF9001EA42E /* SwiftCrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFF5E6E51DDAEF83001EA42E /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5E6E41DDAEF83001EA42E /* Key.swift */; };
@@ -40,6 +41,7 @@
 		AF659BE51E95E8980088CA95 /* Character+CryptoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Character+CryptoTests.swift"; path = "Categories/Character+CryptoTests.swift"; sourceTree = "<group>"; };
 		AF659BE71E95EAE80088CA95 /* Int+CryptoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+CryptoTests.swift"; path = "Categories/Int+CryptoTests.swift"; sourceTree = "<group>"; };
 		AFB1EBED1E76314200D6E5AA /* Caesar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Caesar.swift; path = Ciphers/Caesar.swift; sourceTree = "<group>"; };
+		AFE5CB2920A6D76200905273 /* Shifter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Shifter.swift; path = Tools/Shifter.swift; sourceTree = "<group>"; };
 		AFF5E6C61DDAEEF9001EA42E /* SwiftCrypt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCrypt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCrypt.h; sourceTree = "<group>"; };
 		AFF5E6CA1DDAEEF9001EA42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 			name = Ciphers;
 			sourceTree = "<group>";
 		};
+		AFE5CB2820A6D72100905273 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				AFE5CB2920A6D76200905273 /* Shifter.swift */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
 		AFF5E6BC1DDAEEF9001EA42E = {
 			isa = PBXGroup;
 			children = (
@@ -143,8 +153,9 @@
 				AFB1EBEC1E7630D900D6E5AA /* Ciphers */,
 				AF659BCB1E80FB910088CA95 /* Errors */,
 				AFF5E6E01DDAEF06001EA42E /* Protocols */,
-				AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */,
+				AFE5CB2820A6D72100905273 /* Tools */,
 				AFF5E6CA1DDAEEF9001EA42E /* Info.plist */,
+				AFF5E6C91DDAEEF9001EA42E /* SwiftCrypt.h */,
 			);
 			path = SwiftCrypt;
 			sourceTree = "<group>";
@@ -300,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE5CB2A20A6D76200905273 /* Shifter.swift in Sources */,
 				AF659BDE1E8A26EC0088CA95 /* Character+Crypto.swift in Sources */,
 				AFB1EBEE1E76314200D6E5AA /* Caesar.swift in Sources */,
 				AF659BE01E904B360088CA95 /* Int+Crypto.swift in Sources */,

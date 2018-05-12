@@ -9,8 +9,8 @@
 import Foundation
 
 extension Character {
-    /// Generates the ASCII `Int` value of the `Character`.
-    var asciiValue: Int? {
+    /// Generates the ASCII `Int` value of the `Character` in decimal.
+    var decimalValue: Int? {
         let av = String(self).unicodeScalars.filter { $0.isASCII }.first?.value
 
         return av != nil ? Int(av!) : nil
@@ -18,8 +18,7 @@ extension Character {
 
     /// Whether or not the `Character` is an ASCII letter.
     var isAsciiLetter: Bool {
-        return (("A" as Character) <= self && self <= ("Z" as Character)) ||
-            (("a" as Character) <= self && self <= ("z" as Character))
+        return isUppercaseAsciiLetter || isLowercaseAsciiLetter
     }
 
     /// Whether or not the `Character` is an uppercase ASCII letter.
