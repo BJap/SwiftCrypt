@@ -22,7 +22,9 @@ struct Shifter {
     ///   - distance: The distance to shift the `Character` input.
     /// - Returns: The shifted `Character`.
     func shift(input: Character, distance: Int) -> Character {
-        guard input.isAsciiLetter else { return input }
+        guard input.isAsciiLetter else {
+            return input
+        }
 
         var av = shift(input.decimalValue!, distance)
 
