@@ -9,10 +9,18 @@
 import Foundation
 
 extension Int {
-    /// Generates the `Character` value of an `Int`.
-    var charValue: Character? {
-        let s = UnicodeScalar(self)
+    /// Generates an ASCII letter from the `Int`.
+    var asciiValue: Character? {
+        guard let s = UnicodeScalar(self) else {
+            return nil
+        }
 
-        return s != nil ? Character(s!) : nil
+        let c = Character(s)
+
+        if c.isAsciiLetter {
+            return c
+        }
+
+        return nil
     }
 }

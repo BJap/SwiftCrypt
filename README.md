@@ -7,7 +7,7 @@
 
 [![Swift Version](https://img.shields.io/badge/Swift-4.1-orange.svg)](https://swift.org)
 [![Xcode Version](https://img.shields.io/badge/Xcode-9.2-blue.svg)](https://developer.apple.com/xcode)
-[![Version](https://img.shields.io/badge/version-0.1.2-blue.svg)](https://github.com/BJap/SwiftCrypt/releases/v0.1.2/)
+[![Version](https://img.shields.io/badge/version-0.1.3-blue.svg)](https://github.com/BJap/SwiftCrypt/releases/v0.1.3/)
 [![Open Source MIT](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 

@@ -19,7 +19,7 @@ class CharacterCryptoTests: XCTestCase {
     /// Test an ASCII `Character` to `Int` conversion.
     func testAsciiValueToInt() {
         let c: Character = "A"
-        let i = c.asciiValue
+        let i = c.decimalValue
 
         XCTAssertEqual(i, 65, "ASCII value not generating correctly")
     }
@@ -28,7 +28,7 @@ class CharacterCryptoTests: XCTestCase {
     func testNonAsciiValueToInt() {
         let c: Character = "\u{1F60A}"
 
-        XCTAssertNil(c.asciiValue, "ASCII value should not have generated")
+        XCTAssertNil(c.decimalValue, "ASCII value should not have generated")
     }
 
     /// Test if an ASCII letter `Character` is correctly reported as an ASCII letter.
